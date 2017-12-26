@@ -23,13 +23,13 @@ class Solution {
             if (p != nullptr)
             {
                 sta.push(p);
-                p = p->left;
+                p = p->left; /* find the last left */
             }
             else
             {
                 p = sta.top();
                 sta.pop();
-                res.push_back(p->val);
+                res.push_back(p->val); /* visit root node */
                 p = p->right;
             }
         }
