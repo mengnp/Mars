@@ -1,15 +1,17 @@
 /**
  * leetCode#144. Binary Tree Preorder Traversal
- *
- * Struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  */
 
 #include <vector>
+#include <stack>
 using namespace std;
+
+struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
 
 class Soluiton {
     vector<int> preOrder(TreeNode* root) {
@@ -19,7 +21,7 @@ class Soluiton {
         while(p || !sta.empty())
         {
 
-            if (p != NULL)
+            if (p != nullptr)
             {
                 sta.push(p); /* push stack and save p */
                 res.push_back(p->val); /* visit root node */
@@ -40,7 +42,7 @@ class Soluiton {
 class Solution2 {
     vector<int> preOrder(TreeNode* root) {
         vector<int> res;
-        if (root == NULL) /* corner case */
+        if (root == nullptr) /* corner case */
             return res;
 
         stack<TreeNode*> sta;
@@ -50,11 +52,11 @@ class Solution2 {
             TreeNode *temp = sta.top();
             res.push_back(temp->val);
             sta.pop();
-            if (temp->right != NULL)
+            if (temp->right != nullptr)
             {
                 sta.push(temp->right);
             }
-            if (temp->left != NULL)
+            if (temp->left != nullptr)
             {
                 sta.push(temp->left);
             }
